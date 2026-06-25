@@ -1,0 +1,36 @@
+{
+  "brand_name": "ICICI Prudential AMC",
+  "period": "Jul 2025 – Mar 2026",
+  "reputation_score": 73.8,
+  "total_mentions": 83,
+  "key_findings": [
+    "ICICI Prudential AMC maintains a strong brand perception, driven primarily by positive discussions around fund performance and successful product launches.",
+    "The digital user experience (UX) is the most significant drag on reputation, characterized by recurring technical failures and poor app functionality.",
+    "Investment advice and community engagement are active areas of discussion, indicating high user interest but also requiring careful management to maintain trust.",
+    "High-impact content surrounding NFOs and long-term SIP success stories provides substantial positive momentum that must be leveraged."
+  ],
+  "top_positives": [
+    "Strong market confidence is evident through positive discussions regarding historical fund returns, CAGR figures, and the growth of SIP investments.",
+    "The proactive launch of specialized products (e.g., Nifty Private Bank Index Fund, thematic schemes) reinforces ICICI Prudential's position as an innovative industry leader.",
+    "Executive visibility from key leaders (Sankaran Naren, Anand Shah) successfully positions the brand within high-level market commentary and thought leadership."
+  ],
+  "top_negatives": [
+    "Critical failure points in the mobile application—specifically registration, transaction completion, and connectivity—are generating severe user frustration and posing a direct churn risk.",
+    "The poor UI/UX is not isolated; it affects core functions like viewing/editing SIPs and retrieving basic transaction details, suggesting systemic platform reliability issues.",
+    "Negative sentiment related to digital experience overshadows positive brand perception when users encounter technical friction points."
+  ],
+  "emerging_themes": [
+    "The shift towards specialized, thematic, and index-based funds (e.g., Nifty Private Bank) suggests a maturing investor base seeking targeted growth opportunities.",
+    "User demand for seamless digital integration is escalating; any failure in the app experience is immediately amplified into a major reputational risk."
+  ],
+  "recommended_actions": [
+    "**Immediate Digital Overhaul:** Prioritize an emergency fix sprint focused solely on core transaction flows (registration, SIP management, fund transfers) to eliminate recurring bugs and connectivity failures. Communicate transparently about the timeline for resolution.",
+    "**Amplify Success Stories:** Develop a targeted content campaign leveraging the high-impact NFOs and long-term SIP success stories (e.g., ₹10k to ₹10 lakh in 5 years) across digital channels to capitalize on positive momentum.",
+    "**Enhance Digital Support Visibility:** Implement proactive, highly visible customer support channels (e.g., dedicated chat/hotline for app issues) and use these interactions as feedback loops to demonstrate responsiveness to user complaints.",
+    "**Thought Leadership Deepening:** Increase executive participation in high-profile market commentary events, moving beyond general trends to offer specific fund allocation strategies tied to current economic cycles."
+  ],
+  "risk_alerts": [
+    "Platform Reliability Risk: Recurring app failures (connectivity, transaction errors) pose an immediate and severe threat to user trust and retention. This is the highest priority operational risk.",
+    "Reputational Erosion Risk: If digital issues persist, the positive brand perception built through fund performance will be rapidly undermined by negative word-of-mouth regarding poor usability."
+  ]
+}

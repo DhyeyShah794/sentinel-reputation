@@ -1,0 +1,47 @@
+{
+  "overall_score": 73.8,
+  "driver_scores": [
+    {
+      "driver": "Brand Perception",
+      "score": 90.9,
+      "sub_scores": {
+        "Product Strategy": 75.3,
+        "Thought Leadership": 85.4,
+        "Brand Visibility & Marketing": 90.0
+      },
+      "mention_count": 66,
+      "positive_count": 51,
+      "negative_count": 0,
+      "neutral_count": 15
+    },
+    {
+      "driver": "User Experience",
+      "score": 42.5,
+      "sub_scores": {
+        "Digital & Omnichannel Experience": 34.6,
+        "Customer Support & Complaint Resolution": 0,
+        "Product & Service Quality": 90.0
+      },
+      "mention_count": 15,
+      "positive_count": 6,
+      "negative_count": 9,
+      "neutral_count": 0
+    },
+    {
+      "driver": "Responsible Business Practices",
+      "score": 90.2,
+      "sub_scores": {
+        "Regulatory Compliance & Ethical Governance": 90.0,
+        "Social Impact & Community (CSR)": 90.0
+      },
+      "mention_count": 2,
+      "positive_count": 2,
+      "negative_count": 0,
+      "neutral_count": 0
+    }
+  ],
+  "top_positive_driver": "Brand Perception",
+  "top_negative_driver": "User Experience",
+  "score_trend": null,
+  "methodology_note": "Weighted composite score (0–100) based on sentiment ratios, volume, reach distribution, and source quality across three reputation drivers. Weights: Brand Perception (40%), User Experience (35%), Responsible Business (25%)."
+}

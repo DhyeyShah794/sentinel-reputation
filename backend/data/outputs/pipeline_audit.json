@@ -1,0 +1,357 @@
+{
+  "ingest": {
+    "total_rows": 100,
+    "parsed_rows": 100,
+    "skipped_rows": 0,
+    "issues": []
+  },
+  "clean": {
+    "total_input": 100,
+    "sentiment_fixes": 15,
+    "source_inferred": 9,
+    "title_filled": 19,
+    "date_missing": 16,
+    "reach_missing": 35,
+    "issues": []
+  },
+  "dedup": {
+    "tier1_exact_url": {
+      "exact_duplicates_found": 2,
+      "groups": [
+        {
+          "url": "https://www.reddit.com/r/mutualfunds/comments/1mseu7v",
+          "count": 2,
+          "kept": "35cd7ef4-7253-4ebc-bb67-ae59a3e9a259"
+        }
+      ]
+    },
+    "tier2_fuzzy": {
+      "fuzzy_duplicates_found": 1,
+      "pairs": [
+        {
+          "primary": "0f4a8666-6edd-49ba-8f4f-7a4f71bac7ad",
+          "duplicate": "d03f8224-e091-4b49-96ce-5c4d32d09f40",
+          "score": 0.962
+        }
+      ]
+    },
+    "tier3_semantic": {
+      "semantic_duplicates_found": 0,
+      "pairs": []
+    },
+    "summary": {
+      "total_records": 100,
+      "unique_records": 97,
+      "duplicate_records": 3
+    }
+  },
+  "relevance": {
+    "total_scored": 97,
+    "relevant": 83,
+    "irrelevant": 14,
+    "errors": 0,
+    "cache_hits": 0,
+    "cache_misses": 97,
+    "batch_jobs_submitted": 1,
+    "batch_requests_sent": 97,
+    "score_distribution": {
+      "high": 69,
+      "medium": 10,
+      "low": 10,
+      "irrelevant": 8
+    }
+  },
+  "classify": {
+    "total_classified": 83,
+    "embedding_only": 0,
+    "llm_validated": 83,
+    "errors": 0,
+    "cache_hits": 0,
+    "cache_misses": 83,
+    "batch_jobs_submitted": 1,
+    "batch_requests_sent": 83,
+    "driver_distribution": {
+      "Brand Perception": 66,
+      "User Experience": 15,
+      "Responsible Business Practices": 2
+    },
+    "sub_driver_distribution": {
+      "Product Strategy": 30,
+      "Thought Leadership": 35,
+      "Digital & Omnichannel Experience": 13,
+      "Brand Visibility & Marketing": 1,
+      "Regulatory Compliance & Ethical Governance": 1,
+      "Social Impact & Community (CSR)": 1,
+      "Customer Support & Complaint Resolution": 1,
+      "Product & Service Quality": 1
+    }
+  },
+  "sentiment": {
+    "total_analyzed": 83,
+    "agreements": 48,
+    "disagreements": 35,
+    "errors": 0,
+    "cache_hits": 0,
+    "cache_misses": 83,
+    "batch_jobs_submitted": 1,
+    "batch_requests_sent": 83,
+    "distribution": {
+      "positive": 59,
+      "neutral": 15,
+      "negative": 9
+    },
+    "disagreement_details": [
+      {
+        "mention_id": "2f324a82-add6-4b13-bacd-f9c924406ff9",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention highlights a proactive product launch and strategic expansion into the iSIF segment, whi"
+      },
+      {
+        "mention_id": "a66df7ad-0fa3-4b2c-a51c-b98b520b1af5",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention features ICICI Prudential Mutual Fund's leadership as an expert contributor in a reputab"
+      },
+      {
+        "mention_id": "92472127-baea-4eec-8c43-98a2f0e4b7e4",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The user explicitly praises the brand for listening to feedback and introducing a requested feature,"
+      },
+      {
+        "mention_id": "cca2ac70-ea93-4dbf-8373-84f75af21baa",
+        "original": "negative",
+        "new": "positive",
+        "explanation": "The reviewer explicitly praises the app as a 'massive improvement' over the previous version, indica"
+      },
+      {
+        "mention_id": "e1f1205b-ea62-4c42-814f-74f76546d859",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention highlights the credibility and thought leadership of ICICI Prudential AMC's CIO by notin"
+      },
+      {
+        "mention_id": "e90f4c04-58d2-4582-9903-0b717f6b9757",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention highlights ICICI Prudential AMC's leadership presence at a prestigious industry event, a"
+      },
+      {
+        "mention_id": "677881b4-3e35-4b51-9a4c-f337c8d1bb26",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention highlights Sankaran Naren's role as a thought leader who provides valuable insights on r"
+      },
+      {
+        "mention_id": "5409f0f5-29a4-46a6-9922-5c1a0cf57a73",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention positions ICICI Prudential AMC's Co-CIO as a thoughtful leader providing necessary cauti"
+      },
+      {
+        "mention_id": "846f870a-4144-4574-9f6a-45090de6373f",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention positions ICICI Prudential's S Naren as a thought leader providing exclusive, expert ana"
+      },
+      {
+        "mention_id": "d4a090cd-e0f0-4d4c-ac3c-827f31a8b847",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention highlights exceptional financial performance (18.47% CAGR) and outperformance against be"
+      },
+      {
+        "mention_id": "27a929fc-4140-405c-b2b0-a386874090bb",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention reports that SEBI has approved the company's IPO, which is a significant regulatory mile"
+      },
+      {
+        "mention_id": "0a30d2ec-14c2-45ad-9bbf-1409e3cefa27",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention highlights a strategic product launch by ICICI Prudential AMC, showcasing innovation and"
+      },
+      {
+        "mention_id": "d8b16143-43ea-4dd1-92cd-da196072b374",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention highlights the brand's Chief Investment Officer providing expert market insights and emp"
+      },
+      {
+        "mention_id": "67a3888c-e40c-448e-a8ad-b3791f8f47dd",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention highlights the launch of new investment products and features a quote from the CIO empha"
+      },
+      {
+        "mention_id": "35cd7ef4-7253-4ebc-bb67-ae59a3e9a259",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The user explicitly praises S. Naren as a 'wise man' who communicates effectively, indicating high t"
+      },
+      {
+        "mention_id": "bc1eb831-5a9e-430b-a5c6-f1fdeaf0130a",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention uses highly favorable language such as 'insightful podcast' and 'valuable insights' to d"
+      },
+      {
+        "mention_id": "b02732dc-870d-4502-9c41-f8859195710c",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The user explicitly expresses appreciation for the brand's product suggestion and validates the fund"
+      },
+      {
+        "mention_id": "eaa334db-418f-4015-814a-8c0d8f379715",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention lists ICICI Prudential AMC as an 'Event Partner' in a professional context, associating "
+      },
+      {
+        "mention_id": "4eb8a9c6-135d-4ba1-bf2f-576221723548",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention highlights the fund house's strategic expertise in balancing yield sustainability with g"
+      },
+      {
+        "mention_id": "d6bfaf29-af34-4edc-b68e-6e57465449ca",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention explicitly thanks ICICI Prudential AMC for partnering to make the session 'impactful' an"
+      },
+      {
+        "mention_id": "958ab49a-1dd1-4fb8-86f9-3d010f89ee02",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention positions ICICI Prudential AMC's Co-CIO as a key expert providing valuable, forward-look"
+      },
+      {
+        "mention_id": "7d61d638-0bb2-438c-b0f8-abe7d3569a7e",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention highlights exceptional wealth creation (nearly 4x returns) for a specific scheme, which "
+      },
+      {
+        "mention_id": "430aae0d-0d3e-43fb-a9eb-3da2976ff329",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention highlights ICICI Prudential AMC's leadership and strategic foresight by featuring an exe"
+      },
+      {
+        "mention_id": "eeebce82-8cb9-4ea9-a898-739bb2819fdf",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention explicitly lists ICICI Prudential as a leader in the 'Best Gold ETFs' category based on "
+      },
+      {
+        "mention_id": "d8bf8ddc-fab1-4ed6-9fec-1ae4724ed946",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The user explicitly states they have 'already decided' on ICICI Prudential funds based on 'past perf"
+      },
+      {
+        "mention_id": "8ccd8754-2df9-4c03-a83c-a383cdca19c8",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention highlights significant corporate growth and strategic expansion through the inauguration"
+      },
+      {
+        "mention_id": "6e8320df-3104-4ab2-8caf-75ed50bf710d",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention highlights the brand's Chief Investment Officer providing expert market warnings and str"
+      },
+      {
+        "mention_id": "3a65647b-124d-44d6-a144-ed34c9385d70",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention highlights the brand's leadership by featuring a senior executive as a speaker at an ann"
+      },
+      {
+        "mention_id": "81b23d5a-1b53-40af-b0e6-6050d6df093d",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention highlights exceptional financial performance (32% to 41% CAGR) for funds managed by ICIC"
+      },
+      {
+        "mention_id": "aa93299c-4978-4381-b3eb-829c54388153",
+        "original": "positive",
+        "new": "neutral",
+        "explanation": "The mention is a factual report of an interview and market data regarding AUM growth, presenting inf"
+      },
+      {
+        "mention_id": "604c1bf3-6062-46e4-b5cc-42b4d5bcc52d",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The user highlights the fund's comprehensive asset coverage (gold, bonds, stocks, etc.) as a signifi"
+      },
+      {
+        "mention_id": "81d01706-52ba-44df-a33d-c6836608df78",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention positions ICICI Prudential AMC's leadership as authoritative and insightful by highlight"
+      },
+      {
+        "mention_id": "a00073fe-27ff-455f-b6ee-da62c30fe9e6",
+        "original": "positive",
+        "new": "neutral",
+        "explanation": "The mention is a factual news report summarizing market performance and quoting an expert opinion, w"
+      },
+      {
+        "mention_id": "ee2df4ed-b2cf-4651-b077-71f3672bfd87",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The mention highlights ICICI Prudential AMC's investment strategist providing expert, prudent advice"
+      },
+      {
+        "mention_id": "82339615-31d7-447c-948a-278876ae5833",
+        "original": "neutral",
+        "new": "positive",
+        "explanation": "The user explicitly validates the insights shared by Naren (ICICI Prudential's leadership), stating "
+      }
+    ]
+  },
+  "risk": {
+    "total_assessed": 83,
+    "cache_hits": 0,
+    "cache_misses": 83,
+    "batch_jobs_submitted": 1,
+    "batch_requests_sent": 83,
+    "risk_distribution": {
+      "low": 73,
+      "medium": 10,
+      "high": 0
+    }
+  },
+  "themes": {
+    "theme_count": 7,
+    "cache_hit": false
+  },
+  "score": {
+    "overall_score": 73.8,
+    "driver_scores": {
+      "Brand Perception": 90.9,
+      "User Experience": 42.5,
+      "Responsible Business Practices": 90.2
+    },
+    "total_active_mentions": 83
+  },
+  "duration_seconds": 462.6985900402069,
+  "llm_cache": {
+    "cache_file": "/Users/dhyey/kosmos/Eminence/backend/data/cache/llm_cache.json",
+    "total_entries": 348,
+    "entries_by_stage": {
+      "relevance": 97,
+      "classification": 83,
+      "sentiment": 83,
+      "risk": 83,
+      "themes": 1,
+      "executive_summary": 1
+    },
+    "hits_this_run": 0,
+    "misses_this_run": 348,
+    "dataset_fingerprint": "577039ee46c65256"
+  }
+}

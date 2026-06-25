@@ -1,0 +1,91 @@
+[
+  {
+    "theme_name": "Fund Performance & Returns",
+    "description": "Discussions highlighting strong historical returns, CAGR figures, and the growth of SIP investments in specific ICICI Prudential funds.",
+    "mention_count": 56,
+    "mention_ids": [],
+    "sentiment_skew": "positive",
+    "representative_quotes": [
+      "A ₹1,000 monthly SIP in ICICI Prudential Equity & Debt Fund since Nov 1999 would grow to ₹4 crore by Feb 28, 2026.",
+      "ICICI Prudential Business Cycle Fund delivered a 18.47% CAGR for SIP investors in five years, outperforming Nifty 500 TRI.",
+      "ICICI Prudential Retirement Fund – Pure Equity – Direct Plan has emerged as the best-performing low-cost retirement mutual fund"
+    ],
+    "business_implication": "Strong performance narratives reinforce trust and attract new investors; leveraging these success stories in marketing can drive AUM growth."
+  },
+  {
+    "theme_name": "Product Launches & Innovation",
+    "description": "News regarding the launch of new schemes, including NFOs, thematic funds, and specialized investment options like hybrid or index funds.",
+    "mention_count": 10,
+    "mention_ids": [],
+    "sentiment_skew": "positive",
+    "representative_quotes": [
+      "ICICI Prudential launches a Nifty Private Bank Index Fund, offering low-cost exposure to top private banks driving India’s growth.",
+      "ICICI Prudential Conglomerate Fund’s investment universe includes significant representation from promoter-led groups with activity in ...",
+      "Midcaps to Hybrids: Inside ICICI Prudential's new iSIF Long-Short funds"
+    ],
+    "business_implication": "Frequent product launches position the brand as innovative and responsive to market trends, appealing to both retail and institutional investors."
+  },
+  {
+    "theme_name": "Digital App User Experience",
+    "description": "User feedback regarding the mobile application's functionality, including complaints about bugs, login issues, and UI/UX design.",
+    "mention_count": 3,
+    "mention_ids": [],
+    "sentiment_skew": "negative",
+    "representative_quotes": [
+      "Digital Experience Worst update ever – keeps logging out automatically! 😡 After the latest update, this app has become completely useless.",
+      "the app is pathetic. whenever the market is down, it just doesn't work. You cannot even login to make any transaction.",
+      "yours is the most hopeless mutual fund app ever in terms of registration... enjoyed comfortable and smooth usage.. until I got to know about your app"
+    ],
+    "business_implication": "Persistent technical issues in the digital platform pose a significant reputational risk; immediate remediation and communication are required to retain user trust."
+  },
+  {
+    "theme_name": "Investment Advice & Community Engagement",
+    "description": "Users seeking advice on specific funds, discussing portfolio allocation, and sharing personal investment experiences on social platforms.",
+    "mention_count": 5,
+    "mention_ids": [],
+    "sentiment_skew": "mixed",
+    "representative_quotes": [
+      "Need Advice for ICICI Thematic Advantage & ICICI Equity Savings for 3-Year Horizon (Low Risk, Emergency-Ready)",
+      "Absolutely love the new logo design.It's now very easy for someone like me who always forgets passwords.",
+      "Easy to use good for self investment"
+    ],
+    "business_implication": "Active community engagement indicates a loyal user base; addressing specific fund queries can enhance customer satisfaction and advocacy."
+  },
+  {
+    "theme_name": "Leadership & Market Commentary",
+    "description": "Statements and insights from key executives like Sankaran Naren and Anand Shah regarding market trends, sector outlooks, and fund management strategies.",
+    "mention_count": 26,
+    "mention_ids": [],
+    "sentiment_skew": "neutral",
+    "representative_quotes": [
+      "Sankaran Naren, ED & CIO, ICICI Prudential AMC, said, “Hybrid funds play an important role in helping ...”",
+      "Anand Shah, CIO-PMS and AIF Investments, ICICI Prudential AMC , in an interview that he expects tariff resolution through dialogue.",
+      "ICICI Pru AMC relieves Sankaran Naren from managing Dynamic Asset Allocation FoF"
+    ],
+    "business_implication": "Thought leadership content reinforces the brand's expertise; however, leadership changes should be communicated transparently to avoid uncertainty."
+  },
+  {
+    "theme_name": "Regulatory & Corporate Governance",
+    "description": "News related to SEBI approvals, IPO processes, fund restructuring, and corporate social responsibility (CSR) initiatives.",
+    "mention_count": 2,
+    "mention_ids": [],
+    "sentiment_skew": "positive",
+    "representative_quotes": [
+      "SEBI Gives Green Light To ICICI Prudential AMC's Mega IPO; 49 Million Shares On Offer",
+      "ICICI Pru Passive Multi-Asset FoF to be 'grandfathered'; new Investments to stop from January 27",
+      "Rajasthan and CSR Here are the Top 5 Districts and Top 5 CSR Contributors driving meaningful impact in Rajasthan."
+    ],
+    "business_implication": "Positive regulatory news and CSR activities bolster the brand's credibility and responsible business image, appealing to ESG-conscious stakeholders."
+  },
+  {
+    "theme_name": "Fund Manager Changes",
+    "description": "Reports on the appointment or relief of specific fund managers, indicating shifts in portfolio management strategy.",
+    "mention_count": 11,
+    "mention_ids": [],
+    "sentiment_skew": "neutral",
+    "representative_quotes": [
+      "ICICI Pru AMC relieves Sankaran Naren from managing Dynamic Asset Allocation FoF The fund management team has now been revised to include Sharmila D’silva"
+    ],
+    "business_implication": "Transparency around personnel changes helps manage investor expectations and maintains confidence in the fund's strategic direction."
+  }
+]

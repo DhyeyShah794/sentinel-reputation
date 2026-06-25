@@ -1,0 +1,122 @@
+[
+  {
+    "mention_id": "03a31a46-cbd4-4c26-a7af-ff106d9609c5",
+    "title": "NFO Update: ICICI Prudential Mutual Fund launches Nifty Private Bank Index Fund",
+    "driver": "Brand Perception",
+    "sub_driver": "Product Strategy",
+    "impact_score": 0.943,
+    "reach": 62646070,
+    "description": "The mention highlights the launch of a new product offering 'low-cost exposure' and emphasizes the brand's focus on 'long-term potential,' which frames ICICI Prudential AMC as proactive and customer-centric.",
+    "amplification_potential": "high",
+    "category": "brand_narrative",
+    "priority": 1
+  },
+  {
+    "mention_id": "300795c1-f5f1-48d7-aea2-2e8d721d24a7",
+    "title": "A hybrid mutual fund has turned ₹1,000 monthly SIP into over ₹4 crore in 26 years",
+    "driver": "Brand Perception",
+    "sub_driver": "Product Strategy",
+    "impact_score": 0.942,
+    "reach": 16655916,
+    "description": "The mention highlights exceptional long-term performance and substantial wealth creation for investors, directly associating ICICI Prudential AMC with high returns and effective fund management.",
+    "amplification_potential": "high",
+    "category": "brand_narrative",
+    "priority": 2
+  },
+  {
+    "mention_id": "8cea8918-1a1c-46ac-8321-a63133f5b714",
+    "title": "Best low-cost retirement mutual fund: THIS ICICI Pru fund tops 1, 3 and 5-year return charts",
+    "driver": "Brand Perception",
+    "sub_driver": "Product Strategy",
+    "impact_score": 0.942,
+    "reach": 16655916,
+    "description": "The mention explicitly highlights the fund as 'best-performing' and 'topping return charts', using strong positive descriptors like 'robust' to describe performance, which directly enhances the brand's reputation for delivering superior returns.",
+    "amplification_potential": "high",
+    "category": "brand_narrative",
+    "priority": 3
+  },
+  {
+    "mention_id": "d4a090cd-e0f0-4d4c-ac3c-827f31a8b847",
+    "title": "This mutual fund has turned a ₹10,000 monthly SIP into nearly ₹10 lakh in 5 years",
+    "driver": "Brand Perception",
+    "sub_driver": "Product Strategy",
+    "impact_score": 0.939,
+    "reach": 14580306,
+    "description": "The mention highlights exceptional financial performance (18.47% CAGR) and outperformance against benchmarks, directly associating ICICI Prudential AMC with high returns and successful fund management.",
+    "amplification_potential": "high",
+    "category": "brand_narrative",
+    "priority": 4
+  },
+  {
+    "mention_id": "0a30d2ec-14c2-45ad-9bbf-1409e3cefa27",
+    "title": "ICICI Prudential MF launches conglomerate-focused equity scheme",
+    "driver": "Brand Perception",
+    "sub_driver": "Product Strategy",
+    "impact_score": 0.93,
+    "reach": 33585792,
+    "description": "The mention highlights a strategic product launch by ICICI Prudential AMC, showcasing innovation and market responsiveness, which reflects positively on the brand's leadership and capability.",
+    "amplification_potential": "high",
+    "category": "brand_narrative",
+    "priority": 5
+  },
+  {
+    "mention_id": "67a3888c-e40c-448e-a8ad-b3791f8f47dd",
+    "title": "Midcaps to Hybrids: Inside ICICI Prudential's new iSIF Long-Short funds",
+    "driver": "Brand Perception",
+    "sub_driver": "Product Strategy",
+    "impact_score": 0.928,
+    "reach": 30113088,
+    "description": "The mention highlights the launch of new investment products and features a quote from the CIO emphasizing strategic stability across market cycles, which positions the brand as innovative and thoughtfully led.",
+    "amplification_potential": "high",
+    "category": "brand_narrative",
+    "priority": 6
+  },
+  {
+    "mention_id": "f154cf73-99ee-4ced-94db-fc481aa01b2d",
+    "title": "MC EXCLUSIVE India is an infinite market at the right price: ICICI Pru AMC's Nimesh Shah bets on sca",
+    "driver": "Brand Perception",
+    "sub_driver": "Thought Leadership",
+    "impact_score": 0.926,
+    "reach": 14026100,
+    "description": "The mention highlights the Managing Director's confident and strategic vision regarding market scale and low-cost products, portraying the brand as forward-thinking and well-positioned for growth ahead of its IPO.",
+    "amplification_potential": "high",
+    "category": "brand_narrative",
+    "priority": 7
+  },
+  {
+    "mention_id": "a66df7ad-0fa3-4b2c-a51c-b98b520b1af5",
+    "title": "How to invest for a balanced portfolio this Diwali? 7 experts offer help",
+    "driver": "Brand Perception",
+    "sub_driver": "Thought Leadership",
+    "impact_score": 0.919,
+    "reach": 23778251,
+    "description": "The mention features ICICI Prudential Mutual Fund's leadership as an expert contributor in a reputable publication, associating the brand with authoritative financial advice and thought leadership.",
+    "amplification_potential": "high",
+    "category": "brand_narrative",
+    "priority": 8
+  },
+  {
+    "mention_id": "62e576ce-0457-40db-9dfd-417b5122f3f5",
+    "title": "Why ICICI Pru MF’s Chintan Haria believes it’s time to look at quality smart beta investing",
+    "driver": "Brand Perception",
+    "sub_driver": "Thought Leadership",
+    "impact_score": 0.91,
+    "reach": 11569309,
+    "description": "The mention highlights ICICI Prudential AMC's leadership in identifying strategic investment opportunities and emphasizes the strength of its portfolio companies, portraying the brand as insightful and authoritative.",
+    "amplification_potential": "high",
+    "category": "brand_narrative",
+    "priority": 9
+  },
+  {
+    "mention_id": "17d7b0bf-783c-4d1f-95b0-d4b8a4218ab5",
+    "title": "Nifty Next 50: Can this be your next move in largecap investing",
+    "driver": "Brand Perception",
+    "sub_driver": "Thought Leadership",
+    "impact_score": 0.905,
+    "reach": 25558809,
+    "description": "The mention positions ICICI Prudential AMC as a thought leader by featuring its Principal of Investment Strategy providing expert analysis on market trends, which enhances the brand's reputation for reliability and expertise.",
+    "amplification_potential": "high",
+    "category": "brand_narrative",
+    "priority": 10
+  }
+]
