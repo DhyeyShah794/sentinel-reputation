@@ -202,7 +202,6 @@ class CleanedMention(BaseModel):
         v_str = str(v).strip()
         valid = {"Brand Perception", "User Experience", "Responsible Business Practices"}
         if v_str and v_str not in valid:
-            from app.models.mention import SUBDRIVER_TO_DRIVER
             parent = SUBDRIVER_TO_DRIVER.get(v_str)
             if parent:
                 return parent.value if hasattr(parent, "value") else str(parent)

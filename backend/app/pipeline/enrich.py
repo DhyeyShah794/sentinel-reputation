@@ -12,9 +12,12 @@ import re
 from collections import Counter, defaultdict
 from typing import Any, Dict, List, Tuple
 
+import numpy as np
+
 from app.config import settings
 from app.models.mention import CleanedMention, RiskLevel, Theme
 from app.prompts.loader import load_prompt
+from app.services.embeddings import encode_texts
 from app.services.llm import call_llm_batch_cached, call_llm_cached
 from app.services.llm.schemas import RiskResult, ThemeItem
 from app.services.llm_cache import prompt_cache_key
@@ -281,8 +284,6 @@ def tag_mentions_with_themes(
     if not themes:
         return mentions, themes
 
-    from app.services.embeddings import encode_texts
-
     active = [m for m in mentions if not m.is_duplicate and m.is_relevant]
     if not active:
         return mentions, themes
@@ -293,7 +294,6 @@ def tag_mentions_with_themes(
     mention_texts = [m.combined_text[:512] for m in active]
     mention_embeddings = encode_texts(mention_texts)
 
-    import numpy as np
     # Normalize for cosine similarity via dot product
     theme_norms = theme_embeddings / (np.linalg.norm(theme_embeddings, axis=1, keepdims=True) + 1e-9)
     mention_norms = mention_embeddings / (np.linalg.norm(mention_embeddings, axis=1, keepdims=True) + 1e-9)

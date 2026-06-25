@@ -10,6 +10,7 @@ import logging
 from typing import List, Optional
 
 import numpy as np
+from sentence_transformers import SentenceTransformer
 
 from app.config import settings
 
@@ -22,7 +23,6 @@ def _get_model():
     """Lazy-load the embedding model."""
     global _model
     if _model is None:
-        from sentence_transformers import SentenceTransformer
         logger.info(f"Loading embedding model: {settings.EMBEDDING_MODEL}")
         _model = SentenceTransformer(settings.EMBEDDING_MODEL)
         logger.info("Embedding model loaded.")

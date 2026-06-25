@@ -15,6 +15,22 @@ from typing import Dict, List, Set, Tuple
 from app.config import settings
 from app.models.mention import CleanedMention
 
+try:
+    from rapidfuzz import fuzz as _rapidfuzz_fuzz
+    _RAPIDFUZZ_AVAILABLE = True
+except ImportError:
+    _rapidfuzz_fuzz = None  # type: ignore[assignment]
+    _RAPIDFUZZ_AVAILABLE = False
+
+try:
+    import numpy as np
+    from sentence_transformers import SentenceTransformer
+    _SENTENCE_TRANSFORMERS_AVAILABLE = True
+except ImportError:
+    np = None  # type: ignore[assignment]
+    SentenceTransformer = None  # type: ignore[assignment,misc]
+    _SENTENCE_TRANSFORMERS_AVAILABLE = False
+
 logger = logging.getLogger(__name__)
 
 
@@ -122,9 +138,7 @@ def tier2_fuzzy_dedup(
 
     Only compares non-duplicate mentions from Tier 1.
     """
-    try:
-        from rapidfuzz import fuzz
-    except ImportError:
+    if not _RAPIDFUZZ_AVAILABLE:
         logger.warning("rapidfuzz not installed, skipping fuzzy dedup")
         return mentions, {"fuzzy_duplicates_found": 0, "skipped": True}
 
@@ -144,7 +158,7 @@ def tier2_fuzzy_dedup(
                 continue
 
             # Compare combined text
-            score = fuzz.token_sort_ratio(
+            score = _rapidfuzz_fuzz.token_sort_ratio(
                 active[i].combined_text[:500],
                 active[j].combined_text[:500],
             ) / 100.0
@@ -182,10 +196,7 @@ def tier3_semantic_dedup(
     Catches paraphrased / syndicated content (e.g., same article on
     DailyHunt, MSN, newspoint).
     """
-    try:
-        from sentence_transformers import SentenceTransformer
-        import numpy as np
-    except ImportError:
+    if not _SENTENCE_TRANSFORMERS_AVAILABLE:
         logger.warning("sentence-transformers not installed, skipping semantic dedup")
         return mentions, {"semantic_duplicates_found": 0, "skipped": True}
 

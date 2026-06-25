@@ -7,12 +7,14 @@ Outputs: List[CleanedMention] + cleaning audit
 
 from __future__ import annotations
 
+import json
 import logging
 import re
-from datetime import date
+from datetime import date, datetime
 from typing import List, Optional, Tuple
 from urllib.parse import urlparse
 
+from app.config import settings
 from app.models.mention import (
     CleanedMention,
     RawMention,
@@ -166,21 +168,19 @@ def _normalize_date(dt: object) -> Optional[date]:
     if dt is None:
         return None
 
-    from datetime import datetime as dt_class, date as date_class
-
-    # Already a datetime → extract date
-    if isinstance(dt, dt_class):
+    # Already a datetime → extract date (check datetime before date; datetime is a subclass)
+    if isinstance(dt, datetime):
         return dt.date()
 
-    # Already a date (but not datetime, checked above)
-    if isinstance(dt, date_class):
+    # Already a plain date
+    if isinstance(dt, date):
         return dt
 
     # String → parse
     if isinstance(dt, str):
         for fmt in ("%Y-%m-%d", "%d/%m/%Y", "%m/%d/%Y", "%Y-%m-%dT%H:%M:%S"):
             try:
-                return dt_class.strptime(dt.strip(), fmt).date()
+                return datetime.strptime(dt.strip(), fmt).date()
             except ValueError:
                 continue
 
@@ -340,9 +340,6 @@ def save_cleaned_mentions(
     output_dir=None,
 ) -> None:
     """Save cleaned mentions as JSON."""
-    import json
-    from app.config import settings
-
     output_dir = output_dir or settings.DATA_PROCESSED_DIR
     output_path = output_dir / "02_cleaned_mentions.json"
 

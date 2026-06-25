@@ -17,6 +17,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from app.config import settings
+from app.pipeline.orchestrator import run_pipeline
 
 logger = logging.getLogger(__name__)
 
@@ -577,7 +578,6 @@ async def get_command_center():
 async def trigger_pipeline():
     """Trigger a full pipeline run (synchronous for demo)."""
     try:
-        from app.pipeline.orchestrator import run_pipeline
         result = run_pipeline()
         _load_data()  # Reload outputs
         return {

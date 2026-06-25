@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import logging
 import math
+from collections import defaultdict
 from typing import Dict, List, Tuple
 
 from app.models.mention import (
@@ -176,8 +177,6 @@ def _compute_sub_scores(
     max_reach: int,
 ) -> Dict[str, float]:
     """Compute scores for each sub-driver within a driver group."""
-    from collections import defaultdict
-
     sub_groups: Dict[str, List[CleanedMention]] = defaultdict(list)
     for m in mentions:
         sd = m.sub_driver or "Unknown"

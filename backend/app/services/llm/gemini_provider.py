@@ -12,6 +12,8 @@ import re
 import time
 from typing import Any, Optional
 
+from google import genai
+
 from .base import BaseLLMProvider
 
 logger = logging.getLogger(__name__)
@@ -53,8 +55,6 @@ class GeminiProvider(BaseLLMProvider):
 
     def _get_client(self) -> Any:
         if self._client is None:
-            from google import genai
-
             self._client = genai.Client(api_key=self.api_key)
         return self._client
 

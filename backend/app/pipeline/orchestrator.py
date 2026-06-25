@@ -6,8 +6,10 @@ Raw Data → Clean → Dedup → Relevance → Classify → Sentiment → Enrich
 
 from __future__ import annotations
 
+import csv
 import json
 import logging
+import sys
 import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -20,6 +22,21 @@ from app.models.mention import (
     ReputationScore,
     Theme,
 )
+from app.pipeline.classify import classify_mentions
+from app.pipeline.clean import clean_mentions, save_cleaned_mentions
+from app.pipeline.dedup import deduplicate
+from app.pipeline.enrich import (
+    detect_opportunities,
+    detect_risks,
+    extract_themes,
+    tag_mentions_with_themes,
+)
+from app.pipeline.ingest import ingest_xlsx, save_raw_mentions
+from app.pipeline.relevance import filter_relevance
+from app.pipeline.score import compute_reputation_score
+from app.pipeline.sentiment import analyze_sentiment
+from app.pipeline.summarize import generate_executive_summary
+from app.services.llm_cache import get_llm_cache, init_llm_cache
 
 logger = logging.getLogger(__name__)
 
@@ -134,24 +151,8 @@ def run_pipeline(skip_llm: bool = False, force_refresh_llm: bool = False) -> Pip
 
     Args:
         skip_llm: If True, skip LLM-dependent steps (for testing)
-        force_refresh_llm: If True, ignore cached LLM results and re-call Gemini
+        force_refresh_llm: If True, ignore cached LLM results and re-call the LLM provider
     """
-    from app.pipeline.ingest import ingest_xlsx, save_raw_mentions
-    from app.pipeline.clean import clean_mentions, save_cleaned_mentions
-    from app.pipeline.dedup import deduplicate
-    from app.pipeline.relevance import filter_relevance
-    from app.pipeline.classify import classify_mentions
-    from app.pipeline.sentiment import analyze_sentiment
-    from app.pipeline.enrich import (
-        extract_themes,
-        detect_risks,
-        detect_opportunities,
-        tag_mentions_with_themes,
-    )
-    from app.pipeline.score import compute_reputation_score
-    from app.pipeline.summarize import generate_executive_summary
-    from app.services.llm_cache import get_llm_cache, init_llm_cache
-
     result = PipelineResult()
     start_time = time.time()
 
@@ -179,7 +180,7 @@ def run_pipeline(skip_llm: bool = False, force_refresh_llm: bool = False) -> Pip
         cleaned, dedup_audit = deduplicate(cleaned)
         result.audit["dedup"] = dedup_audit
 
-        # Initialize LLM result cache (reuses prior Gemini responses on reruns)
+        # Initialize LLM result cache (reuses prior provider responses on reruns)
         if not skip_llm:
             init_llm_cache(cleaned, force_refresh=force_refresh_llm)
             logger.info("LLM cache ready at %s", settings.LLM_CACHE_FILE)
@@ -296,8 +297,6 @@ def _save_json(data: Any, path: Path) -> None:
 
 def _save_csv(mentions: list, path: Path) -> None:
     """Save processed mentions as CSV for assignment deliverable."""
-    import csv
-
     path.parent.mkdir(parents=True, exist_ok=True)
 
     if not mentions:
@@ -328,8 +327,6 @@ def _save_csv(mentions: list, path: Path) -> None:
 
 
 if __name__ == "__main__":
-    import sys
-
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",

@@ -1,5 +1,5 @@
 """
-Persistent JSON cache for Gemini LLM results.
+Persistent JSON cache for LLM results (provider-agnostic).
 
 Keys are scoped by pipeline stage and stable row identifiers (row_number)
 so reruns skip API calls when the dataset is unchanged.

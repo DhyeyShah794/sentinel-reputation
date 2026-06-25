@@ -8,7 +8,7 @@ import {
   ResponsiveContainer, PieChart, Pie, Cell, AreaChart, Area,
 } from "recharts";
 import { TrendingUp, TrendingDown, AlertTriangle, MessageSquare, Shield, ArrowRight } from "lucide-react";
-import { api, OverviewData } from "@/lib/api";
+import { api, OverviewData, Theme } from "@/lib/api";
 import { getScoreColor, getScoreLabel, getSentimentColor } from "@/lib/utils";
 
 // Map shortened display names back to the filter values the Explorer accepts
@@ -95,6 +95,7 @@ function KPICard({ title, value, subtitle, icon: Icon, color, delay, href }: {
 export default function ExecutiveOverview() {
   const router = useRouter();
   const [data, setData] = useState<OverviewData | null>(null);
+  const [themes, setThemes] = useState<Theme[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -102,8 +103,14 @@ export default function ExecutiveOverview() {
     let cancelled = false;
     async function load() {
       try {
-        const overview = await api.getOverview();
-        if (!cancelled) setData(overview);
+        const [overview, themesRes] = await Promise.all([
+          api.getOverview(),
+          api.getThemes().catch(() => ({ themes: [] })),
+        ]);
+        if (!cancelled) {
+          setData(overview);
+          setThemes(themesRes.themes.slice(0, 4));
+        }
       } catch (e: unknown) {
         if (!cancelled) setError(e instanceof Error ? e.message : "Failed to load data");
       } finally {
@@ -408,6 +415,53 @@ export default function ExecutiveOverview() {
           </ResponsiveContainer>
         </div>
       </div>
+
+      {/* Top Discussion Themes */}
+      {themes.length > 0 && (
+        <div className="card p-5 mt-4 animate-fade-in" style={{ animationDelay: "450ms" }}>
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-sm font-semibold text-[var(--text-secondary)]">Top Discussion Themes</h3>
+            <Link href="/themes" className="text-[10px] text-[var(--text-muted)] hover:text-blue-400 flex items-center gap-1 transition-colors">
+              All themes <ArrowRight className="w-3 h-3" />
+            </Link>
+          </div>
+          <div className="grid grid-cols-4 gap-3">
+            {themes.map((theme, i) => {
+              const skewColor =
+                theme.sentiment_skew === "positive" ? "#10B981" :
+                theme.sentiment_skew === "negative" ? "#F43F5E" : "#6B7280";
+              return (
+                <Link
+                  key={i}
+                  href="/themes"
+                  className="group rounded-xl p-3.5 border border-[var(--border)] hover:border-[var(--border-hover)] bg-[var(--bg-card)] hover:bg-[var(--bg-card-hover)] transition-all flex flex-col gap-2"
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <span className="text-xs font-semibold text-[var(--text-primary)] leading-tight group-hover:text-blue-400 transition-colors">
+                      {theme.theme_name}
+                    </span>
+                    <span
+                      className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full flex-shrink-0"
+                      style={{ color: skewColor, background: `${skewColor}18` }}
+                    >
+                      {theme.sentiment_skew}
+                    </span>
+                  </div>
+                  <p className="text-[10px] text-[var(--text-muted)] leading-relaxed line-clamp-2">
+                    {theme.description}
+                  </p>
+                  <div className="flex items-center gap-1 mt-auto pt-1 border-t border-[var(--border)]">
+                    <span className="text-[10px] font-semibold" style={{ color: skewColor }}>
+                      {theme.mention_count}
+                    </span>
+                    <span className="text-[10px] text-[var(--text-muted)]">mentions</span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -14,6 +14,14 @@ import logging
 import time
 from typing import Any, Optional
 
+try:
+    from openai import OpenAI
+except ImportError as _openai_import_error:
+    raise ImportError(
+        "openai package is required for the OpenAI provider. "
+        "Install it with: pip install openai"
+    ) from _openai_import_error
+
 from .base import BaseLLMProvider
 
 logger = logging.getLogger(__name__)
@@ -47,19 +55,11 @@ class OpenAIProvider(BaseLLMProvider):
 
     def _get_client(self) -> Any:
         if self._client is None:
-            try:
-                from openai import OpenAI
-
-                self._client = OpenAI(
-                    api_key=self.api_key,
-                    base_url=self.base_url,
-                    timeout=self.timeout,
-                )
-            except ImportError as exc:
-                raise ImportError(
-                    "openai package is required for the OpenAI provider. "
-                    "Install it with: pip install openai"
-                ) from exc
+            self._client = OpenAI(
+                api_key=self.api_key,
+                base_url=self.base_url,
+                timeout=self.timeout,
+            )
         return self._client
 
     # ------------------------------------------------------------------

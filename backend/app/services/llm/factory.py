@@ -16,6 +16,7 @@ from __future__ import annotations
 import logging
 from typing import Optional
 
+from app.config import settings
 from .base import BaseLLMProvider
 
 logger = logging.getLogger(__name__)
@@ -41,8 +42,6 @@ class LLMFactory:
 
     @staticmethod
     def _create_provider() -> BaseLLMProvider:
-        from app.config import settings  # late import to avoid circular deps
-
         provider_name = settings.LLM_PROVIDER.lower()
         logger.info("[llm:factory] Creating provider: %s", provider_name)
 

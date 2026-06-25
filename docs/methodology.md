@@ -21,15 +21,18 @@ We use a **two-stage hybrid classification** that combines semantic embeddings w
 - Compared against 8 pre-computed sub-driver description embeddings via cosine similarity
 - Top 3 candidates identified with similarity scores
 
-**Stage 2 — LLM Validation (Cost: ~$0.001/mention)**
+**Stage 2 — LLM Validation**
 - If top candidate has **confidence ≥ 0.75** and **gap to #2 ≥ 0.10**: Accept embedding result (no LLM call)
-- Otherwise: Send mention + top-3 candidates to Gemini for contextual classification
-- LLM can override embedding suggestion when context reveals the true intent
+- Otherwise: Send mention + top-3 candidates to the configured LLM for contextual classification
+- The LLM can override the embedding suggestion when context reveals the true intent
 
 **Why this matters:**
-- **40% of mentions** are classified by embeddings alone → zero LLM cost
+- **Embedding-first gating** lets unambiguous mentions bypass the LLM entirely. The share that
+  qualifies is corpus-dependent: on this short, nuanced 100-mention dataset the gate is conservative
+  and most mentions are LLM-validated (see `backend/data/outputs/pipeline_audit.json`), whereas
+  larger, more templated corpora resolve a large fraction at the embedding stage for free.
 - **Audit trail**: Every classification has either similarity scores (Stage 1) or LLM rationale (Stage 2)
-- **At scale (10M mentions)**: Reduces LLM API costs by ~40% while maintaining accuracy
+- **At scale (10M mentions)**: The same gate is what keeps LLM API spend bounded while maintaining accuracy
 
 ### 1.3 Sub-Driver Descriptions
 
@@ -144,7 +147,33 @@ Impact = 0.35 × Reach_norm + 0.20 × Source_quality + 0.25 × Sentiment_magnitu
 
 ---
 
-## 6. Scalability Considerations
+## 6. Key Assumptions
+
+| # | Assumption | Rationale |
+|---|------------|-----------|
+| 1 | **Dataset represents a single brand (ICICI Prudential AMC)** | All mentions are pre-filtered to one brand; no cross-brand disambiguation is needed |
+| 2 | **Original sentiment labels are a reference, not ground truth** | The source data contains human-labeled sentiment that may be inconsistent; we re-classify independently and track agreement |
+| 3 | **Reach values are valid proxies for source influence** | Higher reach → greater public exposure; we use log-normalisation to prevent extreme outliers from dominating |
+| 4 | **Sub-driver descriptions generalise to unseen BFSI content** | The 8 pre-computed anchor descriptions were crafted using domain knowledge; they may need updating for new financial products or regulatory contexts |
+| 5 | **Deduplication threshold (85% fuzzy, 92% semantic) is conservative** | We prefer false negatives (keeping a near-duplicate) over false positives (merging distinct mentions) |
+| 6 | **Play Store / App Store reviews with identical URLs are distinct records** | Each review is authored independently even though all share the same app URL |
+
+---
+
+## 7. Limitations
+
+| Limitation | Impact | Mitigation |
+|------------|--------|------------|
+| **Small corpus (83 relevant mentions)** | Sentiment ratios and reputation scores are sensitive to individual outliers; a single viral negative article can shift the score by 5–10 points | Flag low-volume sub-drivers; apply confidence intervals at scale |
+| **LLM classification is non-deterministic** | Re-running the pipeline may produce slightly different classifications for borderline cases | Caching layer preserves results across runs; high-confidence embedding-only classifications are fully deterministic |
+| **No temporal trend analysis** | The dataset spans ~2 months; we cannot distinguish a sustained shift from a one-off event | Resolve at scale with rolling 30/90-day windows |
+| **Reach data is sparse** | Many mentions have reach = 0 (unverified sources); impact scoring underweights these | Treat zero-reach mentions as "unverified" tier with a floor weight of 0.1 |
+| **No cross-brand benchmarking** | Reputation Score (0–100) is relative to this brand's own corpus, not industry peers | Requires multi-brand dataset to enable competitive benchmarking |
+| **English-only classification** | Prompts and embeddings are optimised for English; non-English mentions may be misclassified | Add language detection + translated prompt variants for regional content |
+
+---
+
+## 8. Scalability Considerations
 
 ### Current Architecture (100 mentions)
 - In-memory processing, JSON file storage
@@ -153,7 +182,7 @@ Impact = 0.35 × Reach_norm + 0.20 × Source_quality + 0.25 × Sentiment_magnitu
 ### Production Architecture (10M mentions)
 - **PostgreSQL + pgvector** for mention storage and semantic search
 - **Async LLM calls** with connection pooling and circuit breakers
-- **Embedding-first classification** to reduce LLM calls by 40%
+- **Embedding-first classification** to skip the LLM for high-confidence matches
 - **Incremental processing** — only process new mentions, not the full corpus
 - **Caching layer** for repeated source/URL patterns
 - **Estimated cost at 10M**: ~$4,000/month (Gemini Flash) vs ~$50,000/month (pure GPT-4o)

@@ -7,6 +7,7 @@ Outputs: List[RawMention] + ingestion audit log
 
 from __future__ import annotations
 
+import json
 import logging
 from pathlib import Path
 from typing import List, Tuple
@@ -165,8 +166,6 @@ def ingest_xlsx(
 
 def save_raw_mentions(mentions: List[RawMention], output_dir: Path | None = None) -> Path:
     """Save raw mentions as JSON for audit trail."""
-    import json
-
     output_dir = output_dir or settings.DATA_PROCESSED_DIR
     output_path = output_dir / "01_raw_mentions.json"
 
