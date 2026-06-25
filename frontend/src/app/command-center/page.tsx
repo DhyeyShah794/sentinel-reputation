@@ -426,7 +426,7 @@ export default function CommandCenter() {
             <p className="text-xs text-[var(--text-secondary)] leading-relaxed line-clamp-3 flex-1">
               {data.emerging_theme.description}
             </p>
-            <div className="pt-3 mt-3 border-t border-[var(--border)] flex items-center gap-1 text-[10px] text-violet-400/70 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="pt-3 mt-3 border-t border-[var(--border)] flex items-center gap-1 text-[10px] text-violet-400/70 transition-opacity">
               Explore <ArrowRight className="w-3 h-3" />
             </div>
           </Link>
@@ -461,7 +461,7 @@ export default function CommandCenter() {
               )}
             </div>
             <div className="flex-1" />
-            <div className="pt-3 mt-3 border-t border-[var(--border)] flex items-center gap-1 text-[10px] text-amber-400/70 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="pt-3 mt-3 border-t border-[var(--border)] flex items-center gap-1 text-[10px] text-amber-400/70 transition-opacity">
               Explore <ArrowRight className="w-3 h-3" />
             </div>
           </Link>
@@ -490,8 +490,8 @@ export default function CommandCenter() {
                 </div>
               ))}
             </div>
-            <div className="pt-3 mt-3 border-t border-[var(--border)] flex items-center gap-1 text-[10px] text-blue-400/70 opacity-0 group-hover:opacity-100 transition-opacity">
-              View all <ArrowRight className="w-3 h-3" />
+            <div className="pt-3 mt-3 border-t border-[var(--border)] flex items-center gap-1 text-[10px] text-blue-400/70 transition-opacity">
+              Explore <ArrowRight className="w-3 h-3" />
             </div>
           </Link>
         )}
