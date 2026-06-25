@@ -1,0 +1,10 @@
+# Sentinel API — lightweight deps for serving pre-computed pipeline outputs.
+# Use requirements.txt instead if you need to run the full pipeline.
+
+# Core
+fastapi==0.115.12
+uvicorn[standard]==0.34.3
+pydantic>=2.0
+
+# Config
+python-dotenv>=1.0.0
